@@ -1,0 +1,26 @@
+<!DOCTYPE >
+<body id="body">
+	<div id="div">
+		<img id="img" src="http://static.haha.mx/images/logo.png"/>
+	</div>
+	<script> 
+	function onBody (event){
+		console.log("event capture  in body");
+	}
+	function onDiv(event) {
+		console.log("event handled  in div");
+	}
+	function onImg(event) {
+		console.log("event handled  in img");
+		event.bubbles = true;
+	}
+	window.onload= function () {
+		var aimg = document.getElementById("img");
+		aimg.addEventListener("click", onImg);
+		var adiv = document.getElementById("img");
+		adiv.addEventListener("click", onDiv);
+		var abody = document.getElementById("body");
+		abody.addEventListener("click", onBody, true);
+	}
+	</script>
+</body>
